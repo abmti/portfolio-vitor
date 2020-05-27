@@ -1,5 +1,6 @@
 backend:
-  name: portfolio-vitor
+  name: github
+  repo: abmti/portfolio-vitor
   branch: master
 
 media_folder: static/img

@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: portfolio-vitor
   branch: master
 
 media_folder: static/img

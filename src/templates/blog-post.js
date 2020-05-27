@@ -2,6 +2,7 @@ import { graphql, Link } from "gatsby"
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { Container } from "react-bootstrap"
 
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -15,6 +16,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
+			<Container>
       <article>
         <header>
           <h1
@@ -68,6 +70,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </li>
         </ul>
       </nav>
+			</Container>
     </Layout>
   )
 }

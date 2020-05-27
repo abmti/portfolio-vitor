@@ -1,18 +1,18 @@
-import React from "react"
-import { Link } from "gatsby"
+import { Link } from "gatsby";
+import React from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
-import { rhythm, scale } from "../utils/typography"
 
 const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
-
+  
+	/*
+	const rootPath = `${__PATH_PREFIX__}/`
+	let header
   if (location.pathname === rootPath) {
     header = (
       <h1
         style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
+          marginBottom: 1,
           marginTop: 0,
         }}
       >
@@ -42,28 +42,48 @@ const Layout = ({ location, title, children }) => {
           }}
           to={`/`}
         >
-          {title}
+          {title || 'Home'}
         </Link>
       </h3>
     )
-  }
+	}
+	*/
+
   return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
-      <header>{header}</header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+    <>
+
+			<Navbar bg="dark" variant="dark" expand="lg">
+				<Container>
+					<Navbar.Brand href="/">VC</Navbar.Brand>
+					<Navbar.Toggle aria-controls="basic-navbar-nav" />
+					<Navbar.Collapse id="basic-navbar-nav">
+						<Nav className="ml-auto">
+							<Nav.Link href="mailto:vitor.designer@gmail.com">Email</Nav.Link>
+							<Link to="/resume" className="nav-link">
+								Resume
+              </Link>
+							<Nav.Link href="https://www.linkedin.com" target="_blank">Linkedin</Nav.Link>
+						</Nav>
+					</Navbar.Collapse>
+				</Container>	
+			</Navbar>
+
+      {children}
+
+			<div style={{textAlign: 'center'}}>
+				<Link to={`/resume`} className="mr-2">
+          Resume
+        </Link>
+				<a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+					Linkedin
+				</a>
+			</div>
+
+      <footer className="mt-3 mb-3 text-center">
+        © {new Date().getFullYear()}. Vitor Corrêa - UX/UI Designerrr
       </footer>
-    </div>
+
+    </>
   )
 }
 
